@@ -21,8 +21,8 @@ class Character:
 
 
 class Gremlin(Character):
-  def __init__(self, name):
-    self.name = name
+  def __init__(self, name): # Note the Character's __init__ won't be called automatically
+    self.name = name  
     self.color = "Green"
     self.health = 100
 
@@ -56,7 +56,7 @@ class Tree(Character):
   def display(self):
     print("Tree {} , with color {}, and health {}".format(self.name, self.color, self.health))  # old
 
-  def fight(self):
+  def fight(self):  # Must override the base class fight since trees can't fight.
     print("Trees can't fight!")
 
 characters = []
@@ -70,10 +70,11 @@ for c in characters:
 
 print("\n")
 
-print("\nA Fight happened for all\n")
+print("A Fight happened for all characters\n")
 for c in characters:
   c.fight()
 
+print("\n")
 for c in characters:
   c.display()
 
